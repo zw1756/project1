@@ -1,2 +1,168 @@
-//
-//
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tetris</title>
+
+<style>
+	body{
+	background-color: #1fc8db;
+	/* background-image: linear-gradient(141deg,#9fb8ad 0%,#83c7cf 51%,#75c1de 75%); */
+	/* background: url(img/1.jpg); */
+	background-color: #9fb8ad;
+}
+.bg {
+	width: 530px;
+	/* border: 1px solid #aaa; */
+	/* border-radius: 5px; */
+	padding: 20px;
+	margin: 0px auto;
+	/* box-shadow: 0 0 5px #999; */
+	/* background: #f5f5f5; */
+	font-size: 0;
+	display: flex;
+	margin-top:100px;
+	position: relative;
+	left:50px;
+	/* background-color: #1fc8db; */
+    /* background-image: linear-gradient(141deg,#9fb8ad 0%,#1fc8db 51%,#2cb5e8 75%); */
+}
+#gameBoxBg {
+	width: 330px;
+	padding: 8px;
+	/* background: url(img/bg.jpg); */
+	background-size: auto 100%;
+	background-position-x: 580px;
+}
+#gameBox {
+	width: 330px;
+	height: 450px;
+	overflow: hidden;
+	position: relative;
+}
+
+.mask {
+	width: 100%;
+	height: 100%;
+	/* background: url(img/bg.jpg); */
+	background-size: auto 100%;
+	background-position-x: 580px;
+	position: absolute;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mask button {
+	width: 100px;
+	height: 40px;
+	font-weight: bold;
+	opacity: 0.7;
+}
+
+.wangge {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	border: 1px solid #f0f0f0;
+	border-radius: 5px;
+	box-sizing: border-box;
+	position: absolute;
+	background: #f9f9f9;
+	opacity: 0.9;
+}
+
+.block {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	font-size: 14px;
+	color: #fff;
+	border: 2px solid #fff;
+	background: #ff9000;
+	box-sizing: border-box;
+	border-radius: 5px;
+	position: absolute;
+}
+
+#rigth {
+	width: 180px;
+	height: 450px;
+	padding: 11px 10px;
+	box-sizing: border-box;
+	/* text-align: center; */
+	
+}
+
+#rigth p{
+	color: #fff;
+}
+#rigth .next {
+	width: 100%;
+	height: 160px;
+	position: relative;
+}
+#rigth #score,
+#rigth #level {
+	width: 100%;
+	height: 40px;
+	margin: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+}
+#rigth #level .level,
+#rigth #score .score {
+	font-size: 16px;
+	color: #fff;
+	margin-left: 5px;
+	margin-top: 0px;
+	transition: 0.3;
+}
+#rigth #pause {
+	width: 100%;
+	height: 40px;
+	margin: 10px 0;
+	color: #333;
+	font-size: 16px;
+}
+#rigth p {
+	margin: 0;
+	font-size: 13px;
+	color: rgb(255, 255, 255);
+}
+
+</style>
+
+<script src="js/jquery.js"></script>
+</head>
+<body>
+
+<div class="bg">
+	<div id="gameBoxBg">
+		<div id="gameBox">
+			<div class="mask">
+				<button id="start">Start</button>
+			</div>
+		</div>
+	</div>
+	<div id="rigth">
+		<div class="next"></div>
+		<div id="level"><span>Level:</span><span class="level">1</span></div>
+		<div id="score"><span>Score:</span><span class="score">0</span></div>
+		<button id="pause">Suspend</button>
+		<p>Control:</p>
+		<p>← Move left</p>
+		<p>→ Move right</p>
+		<p>↑ Rotate</p>
+		<p>↓ Accelerated</p>
+	</div>
+</div>
+
+<script src="js/game.js"></script>
+
+</body>
+</html>
