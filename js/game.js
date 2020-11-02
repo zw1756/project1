@@ -95,7 +95,7 @@ Game.prototype.autoMove = function () {
 				if (that.gameover == true) {
 					alert('Game Over!')
 					$('.mask').css({'display': 'flex'}).find('button').text('Play again')
-					$('#gameBox').find('span').remove();$('.next').find('span').remove();$('.score').text('0')
+					$('#gameBox').find('span').remove();$('.next').find('span').remove();
 				} else {
 					$.when(dD0, dD1, dD2, dD3).then(function () {
 						that.y += 30
@@ -112,7 +112,6 @@ Game.prototype.autoMove = function () {
 							if (that.remove == true) {
 								that.remove = false
 								setTimeout(function () {
-									$('.score').animate({'font-size': '26px'}, 100).animate({'font-size': '26px'}, 500).animate({'font-size': '16px'}, 100)
 									stop.resolve()
 								}, 1000)
 							} else {
@@ -124,19 +123,6 @@ Game.prototype.autoMove = function () {
 			}, that.speed)
 		}
 		move()
-		$('#pause').click(function () {
-			if (that.gameover == false) {
-				if (that.pause == false) {
-					clearTimeout(that.timer)
-					that.pause = true
-					$(this).text('Start')
-				} else {
-					that.pause = false
-					move()
-					$(this).text('Suspend')
-				}
-			}
-		})
 	})
 }
 
@@ -163,7 +149,6 @@ Game.prototype.shifouxiaochu = function () {
 			var r9 = that.removes(9, top)
 			var r10 = that.removes(10, top)
 			$.when(r0, r1, r2, r3, r4, r5, r6, r7, r5, r6, r10).then(function () {
-				$('.score').text(that.score)
 				$('.block[move=false]').each(function () {
 					if ($(this).position().top < top) {
 						var top1 = $(this).position().top
@@ -383,8 +368,5 @@ Game.prototype.updateMap = function () {
 		]
 	]
 }
-$('#start').click(function () {
-	$('.mask').css({'display': 'none'})
-	new Game()
-})
+new Game()
 
